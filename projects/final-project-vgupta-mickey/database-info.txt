@@ -1,0 +1,46 @@
+Heroku.com
+
+vinodgupta@gmail.com
+J...1
+
+https://data.heroku.com/datastores/0b1a749f-ed5f-4a83-a973-f38364574b35#administration
+
+Database Credentials
+
+Get credentials for manual connections to this database.
+
+Please note that these credentials are not permanent.
+
+Heroku rotates credentials periodically and updates applications where this database is attached.
+
+Host
+    ec2-23-23-247-222.compute-1.amazonaws.com
+Database
+    dcnbnidei7l37m
+User
+    uszxgfovicukoy
+Port
+    5432
+Password
+    c333599340275ef286229d6cf0750845feb661a0367b323eb1cbecd17b344c6b
+URI
+    postgres://uszxgfovicukoy:c333599340275ef286229d6cf0750845feb661a0367b323eb1cbecd17b344c6b@ec2-23-23-247-222.compute-1.amazonaws.com:5432/dcnbnidei7l37m
+Heroku CLI
+    heroku pg:psql postgresql-contoured-56421 --app vinod-lostandfound
+
+
+
+access database:
+https://adminer.cs50.net/
+
+or
+
+psql on the computer
+
+psql postgres://uszxgfovicukoy:c333599340275ef286229d6cf0750845feb661a0367b323eb1cbecd17b344c6b@ec2-23-23-247-222.compute-1.amazonaws.com:5432/dcnbnidei7l37m 
+
+
+DATABASE_URL=postgres://uszxgfovicukoy:c333599340275ef286229d6cf0750845feb661a0367b323eb1cbecd17b344c6b@ec2-23-23-247-222.compute-1.amazonaws.com:5432/dcnbnidei7l37m
+
+FLASK_APP=application.py
+FLASK_DEBUG=1

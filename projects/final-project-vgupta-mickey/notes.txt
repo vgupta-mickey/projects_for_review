@@ -1,0 +1,20 @@
+1. Install django 2.0
+2. pip3/python3.6
+3. django-admin startproject projectname
+4. in the project directory
+   python manage.py startapp appname
+5. add app name into settings.py
+6. add path to app urls into projectname/url.py 
+7. create appname/url.py and add various routes
+8. add views for routing 
+9. run python manage.py makemigrations and python manage.py migrate
+10. create super user for admin interface
+    python manage.py createsuperuser
+11.  run 127.0.0.1:8000 in browser for default page
+12. run 127.0.0.1:8000/admin for admin control
+
+13. change admin.py for adding all the models need to manage through admin
+14. change model.py for adding new models
+15. change settings.py for adding media, email, db change
+16. user django forms for building apps and html pages
+

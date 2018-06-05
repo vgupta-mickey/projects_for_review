@@ -1,0 +1,25 @@
+{% extends "orders/base.html" %}
+
+{% block body %}
+<h1 class="title-info">Hello, {{ user.first_name }}, Here is the details of the specific subs</h1>
+<div>
+ <ul>
+      <li class="item-info"> {{ Subs.type }} </li>
+      <li class="item-info"> {{ Subs.size }} </li>
+ </ul>
+ </div>
+ <div>
+   <form action="{% url 'add_subs_to_cart' Subs.id %}" method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+          <p class="item-info">Extra cheese?</p>
+          <input type="radio" name="extracheese" value="1">YES<br>
+          <input type="radio" name="extracheese" value="0">NO<br>
+	</div>
+        <div class="form-group">
+            <button class="btn btn-primary">Add to Cart</button>
+        </div>
+   </form>
+ </div>
+{% endblock %}

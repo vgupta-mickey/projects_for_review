@@ -1,0 +1,41 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Connect to websocket
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+    // When connected, configure buttons
+    //socket.on('connect', () => {
+     //   console.log('connected');
+        // Each button should emit a "submit vote" event
+     //   document.querySelectorAll('button').forEach(button => {
+     //       button.onclick = () => {
+     //           const selection = button.dataset.vote;
+     //           socket.emit('submit vote', {'selection': selection});
+     //       };
+     //   });
+    //});
+
+    // When a new vote is announced, add to the unordered list
+    socket.on('announce vote', data => {
+        const li = document.createElement('li');
+        li.innerHTML = `Vote recorded: ${data.selection}`;
+        document.querySelector('#votes').append(li);
+    });
+
+    socket.on('connect', () => {
+           console.log('connected');
+           document.querySelector('#form').onsubmit = () => {
+           //const username = document.querySelector('#username').value;
+           //socket.emit('I am connected', {'username': username});
+           socket.emit('I am connected', {'username': "vinod"});
+           }
+    });
+
+    // When new user is connectedn add to the unordered list
+    socket.on('new user connected', data => {
+       const li = document.createElement('li');
+       li.innerHTML = `${data.username} joins the chat room`;
+       document.querySelector('#users').append(li);
+    });
+
+});

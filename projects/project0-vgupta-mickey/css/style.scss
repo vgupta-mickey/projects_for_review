@@ -1,0 +1,233 @@
+/* color variables */
+
+$bg_color: rgb(230,227,232);
+$fontcolor: black;
+
+/*common CSS */
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* set the background proerties */
+
+#background {
+  width:100%;
+  height:100%;
+  background-image: url(../images/vinod.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow-y: auto;
+}
+
+/*about me */
+%message {
+  background-color:$bg_color; 
+  color:$fontcolor;
+  border:2px solid black; 
+}
+.aboutme-main {
+  @extend %message;
+}
+.aboutmesec {
+  @extend %message;
+  min-height: 400px;
+  height: auto;
+}
+
+/* contact CSS - nested CSS*/
+
+.contact {
+   min-height:300px;
+   height: auto;
+   background-color: $bg_color;
+   color: $fontcolor;
+   margin:15px;
+   padding:15px;
+   table {
+     border: 4px solid black;
+     border-collapse: collapse;
+     padding:15px;
+     margin:15px;
+     width:97%;
+   }
+
+   %tblrowcommon {
+      border: 1px solid black;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+   }
+   td {
+     @extend %tblrowcommon;
+   }
+   th{
+      @extend %tblrowcommon;
+      background-color: black;
+      color: white;
+   }
+   form {
+       text-align: center;
+   }
+}
+
+/* home page title nested css */
+
+.title {
+  position: absolute;
+  width: 670px;
+  min-height: 150px;
+  height: auto;
+  bottom: 0;
+  right: 670px;
+  font-style: normal;
+  font-weight: bolder;
+  font-family: verdana;
+  text-transform: uppercase;
+  color: white;
+  h1 {
+    font-size:60px;
+    border-bottom: 1px solid;
+    padding-bottom: 2 px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Gallery CSS */
+
+.gallery
+{
+  background-color: white;
+  width: 100%;
+  display:flex;
+  flex-flow: row wrap;
+}
+.gallery_item
+{
+  width: 100%;
+  padding:1em;
+  box-shadow: 20px 20px 20px 20px rgba(160,160,160,0.5);
+}
+.gallery_image
+{
+  width: 100%;
+  display: block;
+}
+.gallery_image_caption
+{
+  font-size: 24px;
+  margin-top: 2px;
+}
+
+/* media queries for responsiveness */
+/* gallery flex-basis changes as screen  size changes */
+/* gallery caption font changes as screen size changes */
+/* title name on my main page changes as screen size changes */
+/*  font size changes in contact page as screen size changes */
+
+@media only screen and (max-width: 539px)
+{
+    .title {
+      width: 100px;
+      right:100px;
+      h1::before {
+         content: "I'm Vinod!";
+         font-size:18px;
+      }
+      h3::before {
+         content: "Engineer";
+	     font-size: 14px;
+      }
+    }
+    .contact 
+    {
+		table, td, th, tr {
+    	font-size: 12px;
+    	padding:0;
+    	margin:0;
+		}
+    }
+}
+
+@media only screen and (min-width: 540px)
+{
+  .gallery_item
+  {
+    flex-basis: 50%;
+  }
+  .gallery_image_caption
+  {
+    font-size: 20px;
+    margin-top: 2px;
+  }
+  .title{
+     width: 150px;
+     right:150px;
+     h1::before {
+       content: "I'm Vinod!";
+       font-size:24px;
+     }
+     h3::before {
+       content: "Engineer";
+	   font-size: 18px;
+     }
+  }
+}
+
+@media only screen and (min-width: 790px)
+{
+  .gallery_item
+  {
+    flex-basis: 33%;
+  }
+  .gallery_image_caption
+  {
+    font-size: 18px;
+    margin-top: 2px;
+  }
+  .title{
+     width: 400px;
+     right: 250px;
+     h1::before {
+       content: "I'm Vinod Gupta!";
+       font-size:35px;
+     }
+     h3::before {
+       content: "Principal Software Engineer";
+	   font-size: 25px;
+     }
+  }
+}
+
+@media only screen and (min-width: 1200px)
+{
+  .gallery_item
+  {
+    flex-basis: 25%;
+  }
+  .gallery_image_caption
+  {
+    font-size: 12px;
+    margin-top: 1px;
+  }
+  .title{
+     width: 670px;
+     right: 500px;
+     h1::before {
+       content: "I am Vinod Gupta!";
+       font-size:60px;
+     }
+     h3::before {
+       content: "Principal Software Engineer";
+     }
+  }
+}

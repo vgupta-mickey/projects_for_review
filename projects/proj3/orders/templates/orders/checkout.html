@@ -1,0 +1,52 @@
+{% extends "orders/base.html" %}
+
+{% block body %}
+<div>
+  <h1 class="title-info"> {{user.first_name}}, Please confirm your Order: </h1>
+  {% if customer_cart.built_pizzas_in_cart.count %}
+  <h2 class="item-header"> Pizza </h1>
+  {% endif %}
+  {% for pizza in customer_cart.built_pizzas_in_cart.all %}
+     <p class="item-info"> {{pizza}} </p>
+  {% endfor %}
+  {% if customer_cart.built_subs_in_cart.count %}
+  <h2 class="item-header"> Subs </h1>
+  {% endif %}
+  {% for subs in customer_cart.built_subs_in_cart.all %}
+     <p class="item-info"> {{subs}} </p>
+  {% endfor %}
+  {% if customer_cart.built_pasta_in_cart.count %}
+  <h2 class="item-header"> Pasta </h1>
+  {% endif %}
+  {% for pasta in customer_cart.built_pasta_in_cart.all %}
+     <p class="item-info"> {{pasta}} </p>
+  {% endfor %}
+  {% if customer_cart.built_salad_in_cart.count %}
+  <h2 class="item-header"> Salad </h1>
+  {% endif %}
+  {% for salad in customer_cart.built_salad_in_cart.all %}
+     <p class="item-info"> {{salad}} </p>
+  {% endfor %}
+  {% if customer_cart.built_dinnerplatter_in_cart.count %}
+  <h2 class="item-header"> DinnerPlatter </h1>
+  {% endif %}
+  {% for dp in customer_cart.built_dinnerplatter_in_cart.all %}
+     <p class="item-info"> {{dp}} </p>
+  {% endfor %}
+  <br>
+  <p class="item-info"> Total Items: {{total_items}} </p>
+  <p class="item-info"> Total cost: {{total_cost}} </p>
+</div>
+<div>
+  <form action="{% url 'confirm_order' %}" method="post">
+   {% csrf_token %}
+   <div class="container">
+      <button class="btn btn-primary">Continue Checkout</button>
+   </div>
+  </form>
+</div>
+<div>
+<br>
+ <a href="{% url 'index' %}">Add More Items in Your Cart</a>
+</div>
+{% endblock %}

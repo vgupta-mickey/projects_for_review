@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+       <div id="background">
+            <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+             <p class="navbar-text">Welcome to Book Review Website</p>
+             <ul class="nav navbar-nav navbar-right">
+                {% if username != None %} 
+                 <li class="active"><a href="{{ url_for('logout') }}">LogOut</a></li>
+                {% else %}
+                 <li class="active"><a href="{{ url_for('login') }}">LogIn</a></li>
+                {% endif %}
+             </ul>
+             {% if username != None %} 
+               <p class="navbar-text navbar-right">{{username}}</p>
+             {% endif %}
+            </div>
+            </nav>
+          <div class="container">
+            {% block body %}
+            {% endblock %} 
+          </div>
+       </div>
+    </body>
+</html>

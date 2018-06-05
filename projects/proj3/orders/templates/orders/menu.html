@@ -1,0 +1,57 @@
+{% extends "orders/base.html" %}
+
+{% block body %}
+<div class="title-info">
+Hello, {{ user.first_name }}, What do you want to order?</h1>
+</div>
+<div>
+ <h2 class="item-header"> PIZZA </h2>
+ <ul>
+    {% for p in Pizzas %}
+      <li class="item-info">
+      <a href="{% url 'pizza' p.id %}">{{ p }}</a>
+      </li>
+    {% endfor %}
+ </ul>
+</div>
+<div>
+ <h2 class="item-header"> SUBS </h2>
+ <ul>
+    {% for s in Subs %}
+      <li class="item-info">
+      <a href="{% url 'subs' s.id %}">{{ s }}</a>
+      </li>
+    {% endfor %}
+ </ul>
+</div>
+<div>
+ <h2 class="item-header">PASTA</h2>
+ <ul>
+    {% for p in Pastas %}
+      <li class="item-info">
+      <a  href="{% url 'pasta' p.id %}">{{ p }}</a>
+      </li>
+    {% endfor %}
+ </ul>
+</div>
+<div>
+ <h2 class="item-header"> SALAD </h2>
+ <ul>
+    {% for p in Salads %}
+      <li class="item-info">
+      <a class="item-info" href="{% url 'salad' p.id %}">{{ p }}</a>
+      </li>
+    {% endfor %}
+ </ul>
+</div>
+<div>
+ <h2 class="item-header"> DINNERPLATTER </h2>
+ <ul>
+    {% for p in Dinnerplatters %}
+      <li class="item-info">
+      <a class="item-info" href="{% url 'dinnerplatter' p.id %}">{{ p }}</a>
+      </li>
+    {% endfor %}
+ </ul>
+</div>
+{% endblock %}

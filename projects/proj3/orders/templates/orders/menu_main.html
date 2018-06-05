@@ -1,0 +1,18 @@
+{% extends "orders/base.html" %}
+
+{% block body %}
+<h1>Hello, {{ user.first_name }}, Here is the list of products we offer</h1>
+<div>
+        {% if Pizza.count %}
+        <main class="site-wrapper">
+         <section class="menu">
+         <figure class="menu_item">
+           <img src={% static 'orders/pizza.jpg' %} class="gallery_image">
+                   <figcaption class="gallery_image_caption">PIZZA</figcaption>
+         </figure>
+         </section>
+         </main>
+        {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "orders/base.html" %}
+
+{% block body %}
+<div>
+  <h1 class="item-info"> {{user.first_name}}, Thank you for placing the order </h1>
+  <h1 class="item-info"> Your order number is: {{order_id}}</h1>
+</div>
+ <a href="{% url 'index' %}">Continue Shopping</a>
+</div>
+{% endblock %}

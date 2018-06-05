@@ -1,0 +1,13 @@
+{% extends "lostandfound/base.html" %}
+
+{% block title %}
+    Signup-lostandfound website 
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

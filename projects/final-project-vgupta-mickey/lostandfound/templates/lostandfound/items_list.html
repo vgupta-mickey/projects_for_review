@@ -1,0 +1,28 @@
+{% extends "lostandfound/base.html" %}
+
+{% block body %}
+<div class="title-info">
+{% if items_list.count %}
+{% ifequal type 1 %}
+  Hello, {{ user.first_name }}, Based on your search, the following items are reported as lost.
+{% else %}
+  Hello, {{ user.first_name }}, Based on your search, the following items are reported as found.
+{% endifequal %}
+{% else %}
+  No match found.
+{% endif %}
+</div>
+<div>
+ <ul>
+    {% for item in items_list %}
+      <li class="item-info">
+      {% ifequal type 1 %}
+        <a href="{% url 'display_lost_item' item.id %}">{{ item.item }}</a>
+      {% else %}
+        <a href="{% url 'display_found_item' item.id %}">{{ item.item }}</a>
+      {% endifequal %}
+      </li>
+    {% endfor %}
+ </ul>
+</div>
+{% endblock %}

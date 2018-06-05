@@ -1,0 +1,60 @@
+
+Final Project
+Released 	Monday, April 9
+Due 	Monday, May 7 at 12pm ET
+Objectives
+
+    Gain experience with designing and implementing a web application with Python and JavaScript.
+
+Getting Help
+
+If you need help while working on the project, feel free to take advantage of any or all of the following resources:
+
+    Attend one or more of the course’s sections.
+    Ask questions on Slack. Email web@cs50.harvard.edu if you need an invitation.
+    Attend office hours.
+
+Overview
+
+The final project is your opportunity to design and implement a dynamic website of your own. So long as your final project draws upon this course’s lessons, the nature of your website will be entirely up to you, albeit subject to the staff’s approval.
+Proposal
+
+Before you begin working on your project, the proposal is an opportunity for you to run your idea or ideas by the teaching staff. By Friday, April 20, complete this form to describe your project and define your milestones.
+
+Your teaching fellow may approve your project, or request modifications. Feel free to use this as an opportunity to ask any questions you may have about the final project as well.
+Getting Started
+GitHub Classroom
+
+We’ll again use GitHub Classroom to distribute projects and collect submissions. To begin the final project:
+
+    Click here to go to the GitHub Classroom page for starting the final project.
+    Click the green “Accept this assignment” button. This will create a GitHub repository for your project.
+    Click on the link that follows “Your assignment has been created here”, which will direct you to the GitHub repository page for your project. It may take a few seconds for GitHub to finish creating your repository.
+    In the upper-right corner of the repository page, click the “Fork” button, and then (if prompted) click on your username. This will create a fork of your project repository, a version of the repository that belongs to your GitHub account.
+    Now, you should be looking at a GitHub repository titled username/final-project-username, where username is your GitHub username. This will be the repository to which you will push all of your code while working on your project. When working on the project, do not directly push to the web50/final-project-username repository: always push your code to your username/final-project-username repository.
+
+Requirements
+
+In this project, you are asked to build a web application of your own. The nature of the application is up to you, subject to a few requirements:
+
+    Your web application must utilize at least two of Python, JavaScript, and SQL.
+    Your web application must be mobile-responsive.
+    In README.md, include a short writeup describing your project, what’s contained in each file you created or modified, and (optionally) any other additional information the staff should know about your project.
+    If you’ve added any Python packages that need to be installed in order to run your web application, be sure to add them to requirements.txt!
+
+Beyond these requirements, the design, look, and feel of the website are up to you!
+How to Submit
+Step 1 of 2
+
+    Go to the GitHub page for your username/final-project-username repository (note: this is different from the web50/final-project-username repository).
+    On the right side of the screen, click the Pull request button.
+    Make sure that the “base fork” is web50/final-project-username, and the “head fork” is username/final-project-username.
+    Click “Create pull request”.
+    On the next page, click the “Create pull request” button again.
+
+Step 2 of 2
+
+Fill out this form!
+
+Congratulations! You’ve completed the final project!
+

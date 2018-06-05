@@ -1,0 +1,63 @@
+/* color variables */
+/*common CSS */
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: verdana;
+}
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* set the background proerties */
+#background {
+  width: 100%;
+  min-height:100%;
+  height: auto;
+  background-color:none;
+  overflow-y: auto;
+}
+.title-info
+{
+   font-size: 18px;
+   min-height: 10px;
+   padding:10px;
+   margin:5px;
+}
+ul
+{
+  list-style-type: none;
+}
+.item-info
+{
+   font-size: 18px;
+   min-height: 10px;
+   padding:10px;
+   margin:1px;
+   border-top: 2px solid grey;
+   border-bottom: 2px solid grey collapse;
+   border-collapse: collapse;
+}
+.item-info a
+{
+  color: blue;
+}
+
+.div-info
+{
+   font-size: 18px;
+   min-height: 10px;
+   padding:10px;
+   margin:1px;
+   border-top: 2px solid grey;
+   border-bottom: 2px solid grey collapse;
+}
+
+.item-fields
+{
+  color: blue;
+  
+}

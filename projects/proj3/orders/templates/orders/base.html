@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'orders/styles.css' %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+       <div id="background">
+           <nav class="navbar navbar-default">
+            <div class="container-fluid">
+             <p class="navbar-text" style="color:red;">Welcome to Pinnochio's Pizza and Subs Website</p>
+             <ul class="nav navbar-nav navbar-right">
+                {% if user %}
+                 <li class="active"><a href="{% url 'logout' %}">LogOut</a></li>
+                {% else %}
+                 <li class="active"><a href="{% url 'login' %}">LogIn</a></li>
+                {% endif %}
+             </ul>
+             {% if user and user.first_name %} 
+               <p class="navbar-text navbar-right">{{user.first_name}}</p>
+             {% endif %}
+             <p class="navbar-text navbar-right"><a href="{% url 'checkout' %}">Cart({{total_items}})</a></p>
+            </div>
+           </nav>
+          <div class="container">
+            {% block body %}
+            {% endblock %} 
+          </div>
+       </div>
+    </body>
+</html>

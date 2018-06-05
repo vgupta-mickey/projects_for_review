@@ -1,0 +1,84 @@
+html, body 
+{
+   width: 100%;
+   height: 100%; 
+}
+
+html {
+   box-sizing: border-box; 
+}
+
+*, *:before, *:after 
+{
+   box-sizing: inherit; 
+}
+
+/* hide username html part initially and unhide only if browser is not remebered the username */
+
+#nickWrap {
+   display: none;
+}
+
+.container {
+    background-color:green;
+    min-height:400px;
+    padding: 20px;
+    margin:60px;
+    border-radius:10px;
+    height:auto;
+}
+.container-fluid {
+    background-color:green;
+    min-height:400px;
+    padding: 20px;
+    margin:60px;
+    border-radius:10px;
+    height:auto;
+    overflow-wrap: normal;
+}
+
+/ * hide contents - chatroom info until user enters username and channel info */
+#contentWrap {
+    display: none;
+}
+
+/* hide channel info until user enters username */
+
+#channelWrap {
+    display: none;
+}
+
+#chatWrap {
+   float:left;
+   border: 1px #0000 solid;
+}
+
+#chat {
+    min-height:300px;
+    height: auto;
+}
+
+#privchat {
+    min-height:300px;
+    height: auto;
+}
+
+.enter-info {
+   background-color: white;
+   min-height: 100px;
+   padding:50px;
+   margin:50px;
+   border-radius:10px;
+}
+
+.row.display-flex {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.main-headers {
+  background-color:green; 
+  margin:5px;
+  padding:5px;
+  color: white;
+}

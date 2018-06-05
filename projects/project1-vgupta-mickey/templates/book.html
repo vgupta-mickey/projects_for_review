@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book
+{% endblock %}
+
+{% block body %}
+    <div class="title-info">
+    <h4>Book Details</h4>
+    </div>
+    <ul class="book-info">
+        <li>Title: {{ book.title }}</li>
+        <li>Author: {{ book.author }}</li>
+        <li>Year: {{ book.year}}</li>
+        <li>ISBN: {{ book.isbn}}</li>
+        <li>Goodread.com Reviews: {{ review_cnt}}</li>
+        <li>Goodread.com Avg Rating: {{ review_rating}}</li>
+    </ul>
+    <div class="title-info">
+    <h4>User Reviews</h4>
+    </div>
+    {% for review in user_reviews %}
+      <div class="user-reviews">
+       <p>User: {{ review.username}} </p>
+       <p>rating: {{ review.rating}}</p>
+       <p>comments: {{ review.review }} </p>
+      </div>
+    {% endfor %} 
+
+
+    <form action="{{ url_for('bookreview',book_id=book.id) }}" method="post">
+
+        <div class="form-group title-info">
+        <h4>Please review the book</h3>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="rating" placeholder="Please enter rating between 1-5">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="review_comments" placeholder="Please enter your comments">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Submit review</button>
+        </div>
+
+    </form>
+
+{% endblock %}

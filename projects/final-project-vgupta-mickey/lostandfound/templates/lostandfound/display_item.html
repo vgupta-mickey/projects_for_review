@@ -1,0 +1,97 @@
+{% extends "lostandfound/base.html" %}
+
+{% block style %}
+   /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+#map {
+   height: 400px;
+   margin: 0;
+   padding: 0;
+}
+
+{% endblock %}
+
+{% block body %}
+<div class="div-info" style="background-color:blue; color:white;">
+{% ifequal type 1 %}
+  {{ item.item.title}} lost on {{item.item.date}}
+{% else %}
+  {{ item.item.title}} found on {{item.item.date}}
+{% endifequal %}
+</div>
+<div class="div-info">
+  <p><span class="item-fields">Title</span>: {{ item.item.title}}</p>
+</div>
+<div class="div-info">
+  <p><span class="item-fields">category</span>: {{ item.item.cat}}</p>
+</div>
+<div class="div-info">
+  <p><span class="item-fields">sub-category</span>: {{ item.item.subCat}}</p>
+</div>
+<div class="div-info">
+  <p><span class="item-fields">color</span>: {{ item.item.color}}</p>
+</div class="div-info">
+<p id="location-info" class="div-info">
+  {{ item.item.location}}
+</p>
+<div class="div-info">
+  <p><span class="item-fields">description</span>: {{ item.item.description}}</p>
+</div>
+<div class="image-info">
+  {% if item.item.picture %}
+  <img src="{{ item.item.picture.url }}" width="auto" width-max="400px" height="300px">
+  {% endif %}
+</div>
+<div style="padding:10px;">
+   {% ifequal type 1 %}
+   <form action="{% url 'contact_for_found_item' item.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <button class="btn btn-primary">Contact Me</button>
+        </div>
+   </form>
+   {% else %}
+   <form action="{% url 'contact_for_lost_item' item.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <button class="btn btn-primary">Contact Me</button>
+        </div>
+   </form>
+   {% endifequal %}
+</div>
+<div id='map'></div>
+<script>
+      function initMap() {
+        console.log("hello");
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+        console.log("hello1");
+        console.log(geocoder);
+
+        console.log("hi content is loaded");
+        geocodeAddress(geocoder, map);
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('location-info').textContent;
+        console.log(address);
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbhgUJ_PWaVrwBgG8smhubSGvsnpp98gg&callback=initMap"> </script>
+
+
+{% endblock %}

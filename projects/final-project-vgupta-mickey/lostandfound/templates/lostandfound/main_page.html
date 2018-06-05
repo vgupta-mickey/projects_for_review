@@ -1,0 +1,88 @@
+{% extends "lostandfound/base.html" %}
+
+{% block title %}
+    lostandfound.com
+{% endblock %}
+
+{% block body %}
+    <div class="message" style="color:red;font-size:18px">
+     {% if message %}
+      {{ message }}
+     {% endif %}
+    </div>
+    <div>
+    <h4>You can search a lost item to see if it is being report as found.
+        You can search a found item to see if it is being reported as lost item.
+    </h4>
+    </div>
+     <form action="{% url 'search_listings' %}" method="post">
+       {% csrf_token %}
+       <div class="form-group">
+          <select class="form-control" name="search_list">
+             {% for listing_option in options %}
+                    <option value="{{ listing_option }}">{{ listing_option }}</option>
+             {% endfor %}
+          </select>
+       </div>
+        <div class="form-group">
+           <input class="form-control" name="search_input" placeholder="enter few key words or leave blank for full listings">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Search Listing</button>
+        </div>
+
+    </form>
+
+    <div>
+    <h4>Or Search a lost item by category to see anybody reported as found</h4>
+    </div>
+    <form action="{% url 'search_lost_item_by_cat' %}" method="post">
+       {% csrf_token %}
+       <div class="form-group">
+          <select class="form-control" name="search_list">
+             {% for c in cat %}
+                    <option value="{{ c }}">{{ c }}</option>
+             {% endfor %}
+          </select>
+       </div>
+       <div class="form-group">
+            <button class="btn btn-primary">Search Lost Item by Category</button>
+       </div>
+    </form>
+
+    <div>
+    <h4>Or Search a found item by category to see if any body reported as lost </h4>
+    </div>
+    <form action="{% url 'search_found_item_by_cat' %}" method="post">
+       {% csrf_token %}
+       <div class="form-group">
+          <select class="form-control" name="search_list">
+             {% for c in cat %}
+                    <option value="{{ c }}">{{ c }}</option>
+             {% endfor %}
+          </select>
+       </div>
+       <div class="form-group">
+            <button class="btn btn-primary">Search Found Item by Category</button>
+       </div>
+    </form>
+    <div>
+    <h4>Or You can report a lost item by clicking the following button.</h4>
+    </div>
+    <form action="{% url 'report_a_lost_item' %}" method="post">
+       {% csrf_token %}
+        <div class="form-group">
+            <button class="btn btn-primary">Report a lost item</button>
+        </div>
+    </form>
+    <div>
+    <h4>Or You can report a found item by clicking the following button.</h4>
+    </div>
+    <form action="{% url 'report_a_found_item' %}" method="post">
+       {% csrf_token %}
+        <div class="form-group">
+            <button class="btn btn-primary">Report a found item</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,113 @@
+
+Project 0: Homepage
+Released 	Monday, January 22
+Due 	Monday, February 5 at 12pm EST
+Objectives
+
+    Become more comfortable with HTML and CSS to design and style webpages.
+    Gain experience with git, GitHub, and GitHub Pages to deploy your website to the internet.
+    Learn to use SCSS to write more complex stylesheets for your webpages.
+
+Getting Help
+
+If you need help while working on the project, feel free to take advantage of any or all of the following resources:
+
+    Attend one or more of the course’s sections, beginning week of January 29.
+    Ask questions on Slack. Email web@cs50.harvard.edu if you need an invitation.
+    Attend office hours, beginning week of January 29.
+
+Getting Started
+git and GitHub
+
+If you don’t already have a GitHub account, head over to https://github.com/join and create an account. You’ll use this account throughout the course to work on assignments, submit your work, and receive feedback.
+
+You’ll also need to make sure you have git installed on your computer. Go to GitHub’s instructions for setting up and configuring git on your machine, and follow the steps there to install git (if you didn’t already have it installed) and configure git with your GitHub username and email address.
+GitHub Classroom
+
+In this course, we’ll use GitHub Classroom to distribute projects and collect submissions. To begin Project 0:
+
+    Click here to go to the GitHub Classroom page for starting the assignment.
+    Click the green “Accept this assignment” button. This will create a GitHub repository for your project. Recall that a git repository is just a location where your code will be stored and which can be used to keep track of changes you make to your code over time.
+    Click on the link that follows “Your assignment has been created here”, which will direct you to the GitHub repository page for your project. It may take a few seconds for GitHub to finish creating your repository.
+    In the upper-right corner of the repository page, click the “Fork” button, and then (if prompted) click on your username. This will create a fork of your project repository, a version of the repository that belongs to your GitHub account.
+    Now, you should be looking at a GitHub repository titled username/project0-username, where username is your GitHub username. This will be the repository to which you will push all of your code while working on your project. When working on the project, do not directly push to the web50/project0-username repository: always push your code to your username/project0-username repository.
+    Next, let’s set up GitHub Pages for this repository. Click on the “Settings” tab on the repository page. Scroll down until you see “GitHub Pages”, set the “Source” to “master branch”, and click “Save.”
+    If you scroll down on the page again to “GitHub Pages”, you should see the URL at which your GitHub pages website will (soon) live! But first, we’ll need to add some HTML to your repository.
+
+Your First Webpage
+
+Okay, let’s add a simple webpage to your repository. First, on your main repository page (https://github.com/username/project0-username), click on the green “Clone or download” button. Copy the “Clone with HTTPS” link to your clipboard (if familiar with SSH, you can use that instead).
+
+Then, in a terminal window, move to the directory where you want to store your project on your computer (recall that the cd command can change your current directory), and run
+
+git clone repository_url project0
+
+where repository_url is the link you just copied from GitHub. You will be prompted for your GitHub username and password
+
+    If you don’t want to enter your GitHub username and pasword every time you clone a repository, you can also optionally connect to GitHub using SSH. More information about that here.
+
+Go ahead and run cd project0 to enter your repository. Now, run
+
+touch index.html
+
+to create a new index.html file in your repository. Open the file with your favorite text editor: popular choices include Atom, Sublime Text, and VS Code. Then, paste in the following contents:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        Hello, world!
+    </body>
+</html>
+
+Then, save your index.html file.
+
+Okay, it’s time to push our HTML file to your repository on GitHub! In your terimal window, in your project0 directory, run:
+
+git add index.html
+
+to let git know that you want to include index.html in your next commit to this repository. Now, run:
+
+$ git commit -m "Add first webpage"
+
+to commit your changes to this repository. The string after -m is your commit message, a short written description of the changes you’ve made in this commit. Writing succinct, informative commit messages will help you refer back to old changes later!
+
+Now, let’s push our changes online. Run:
+
+$ git push
+
+and your commit should be pushed to GitHub, and deployed to GitHub Pages. If you check your repository page on GitHub, and then check the GitHub Pages link that was generated for you earlier, you should see a webpage that just says “Hello, world!” with a title of “My Webpage.” Your webpage is now deployed to the internet!
+Requirements
+
+Alright, now it’s time to make your website your own. Design a personal webpage about yourself, one of your interests, or any other topic of your choice. The subject matter, look and feel, and design of the site are entirely up to you, subject to the following requirements:
+
+    Your website must contain at least four different .html pages, and it should be possible to get from any page on your website to any other page by following one or more hyperlinks.
+    Your website must include at least one list (ordered or unordered), at least one table, and at least one image.
+    Your website must have at least one stylesheet file.
+    Your stylesheet(s) must use at least five different CSS properties, and at least five different types of CSS selectors. You must use the #id selector at least once, and the .class selector at least once.
+    Your stylesheet(s) must include at least one mobile-responsive @media query, such that something about the styling changes for smaller screens.
+    You must use Bootstrap 4 on your website, taking advantage of at least one Bootstrap component, and using at least two Bootstrap columns for layout purposes using Bootstrap’s grid model.
+    Your stylesheets must use at least one SCSS variable, at least one example of SCSS nesting, and at least one use of SCSS inheritance.
+    In README.md, include a short writeup describing your project, what’s contained in each file, and (optionally) any other additional information the staff should know about your project.
+
+Note that not all of the above requirements are covered in Lecture 0, some will be introduced in Lecture 1.
+FAQs
+
+Reload periodically to see answers to common FAQs!
+How to Submit
+Step 1 of 2
+
+    Go to the GitHub page for your username/project0-username repository (note: this is different from the web50/project0-username repository).
+    On the right side of the screen, click the Pull request button.
+    Make sure that the “base fork” is web50/project0-username, and the “head fork” is username/project0-username.
+    Click “Create pull request”.
+    On the next page, click the “Create pull request” button again.
+
+Step 2 of 2
+
+Fill out this form!
+
+Congratulations! You’ve completed Project 0.
+

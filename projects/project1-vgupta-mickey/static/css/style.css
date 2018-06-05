@@ -1,0 +1,75 @@
+/* color variables */
+/*common CSS */
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: verdana;
+}
+
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* set the background proerties */
+#background {
+  width: 100%;
+  min-height:100%;
+  height: auto;
+  background-color: #e9f0fc; 
+}
+
+.title-info
+{
+  text-align: left;
+  background-color:black; 
+  color:white; 
+  padding:5px;
+  margin:10px;  
+  border-radius:5px;
+}
+
+.books-info
+{
+  background-color:white;
+  list-style-type: none;
+  padding: 20px;
+  margin: 20px;
+}
+
+.book-info
+{
+   background-color:#cce5ff;
+}
+
+.books-info li
+{
+  padding:10px;
+  margin:5px;
+  width: 100%;
+}
+
+.books-info li a{
+  padding:20px;
+  margin:10px;
+  width: 100%;
+  font-size: 16px;
+}
+.book-info li
+{
+  background-color:#cce5ff;
+  padding:10px;
+  margin:5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.user-reviews
+{
+  background-color:#cce5ff;
+  padding:10px;
+  margin:5px;
+  width: 100%;
+  font-size: 16px;
+}
