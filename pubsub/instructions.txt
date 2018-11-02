@@ -1,0 +1,53 @@
+How to build and run?
+
+1. A simple Makefile is supplied along with the code. In the make file, you need
+to change the path for the boost_dir.
+
+2. ./make
+   This will build pubsub_server in the same directory. It is compiled with
+   -std=c++11.
+
+3.  ./start_server.sh -  run the pubsub server
+    ->You need to change your LD_LIBRARY_PATH for your boost .so library in the
+	script.
+	-> change the desired port number.
+	-> only ipv4 is supported.
+	-> load type - If you are going to test the server with few clients, set
+	loadType = low, otherwise use med/high. This setting controllers the number of threads to spawn.
+    exmaple:
+	./pubsub_server ipv4 2500 med
+
+    -> server will run in backgroud. You need to use kill cammand in order to kill the server. 
+
+4. All the logs are turned off except the error logs or when a subscriber is subscribing for a channel.
+
+Basic design detail:
+
+1. Server is designed with multi-threaded process.
+2. Main thread handles listening socket and is not blocked by any data sockets
+activites.
+3. A pool of  threads are created. The number of threads to spawn  depends on the lodType supplied as a part of
+command line input.
+4. New connections are distributed in round robin fashion to a thread-pool.
+5. Each thread is responsible for managing bunch of client connections.
+6. Each thread run on their own io_service and is using async service so that
+they can handle multiple client connections w/o blocking other client requests.
+
+7. There are 4 c++ class are defined
+   
+   7.1 pubsub_server class who will be responsible to start listen socket and
+   accepting new connections and handing over the connections to data socket
+   threads
+   7.2  pubsusb_app class who will be responsible to handle pubsub service. It
+   maintains list of clients subscribed for the channels.
+   7.3 pubsub_sock_conn - This class manage a TCP connection, read and write
+   into the socket.
+
+   7.4  pubsub_thread_pool - This class manage the thread pool.
+
+
+Note: The server is designed with the goal where it is scalable, robust, stable,
+and can be extended for new functionality. There is always a scope to improve
+it. 
+
+

@@ -1,0 +1,1 @@
+g++ -g -std=c++11 -I/home/vinod/test_dir/mathtest/boost_dir/include/  pubsub_sock_conn.cpp pubsub_thread_pool.cpp pubsub_server.cpp pubsub_app.cpp pubsub_server_main.cpp -L/home/vinod/test_dir/mathtest/boost_dir/lib/ -lboost_system -o pubsub_server -lpthread
